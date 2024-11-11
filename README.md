@@ -23,19 +23,29 @@ Ensure you have the following installed on your development machine:
 
 ## Install Application
 
-```sh
 # Clone repository
+
+```sh
 git clone https://github.com/miket-llc/jem.git
+```
 
 # Change into directory
+
+```sh
 cd jem
+```
 
 # Install dependencies
+
+```sh
 npm install
+```
 
 # Optional: test if the application is running
+
+```sh
 npm start
-```jsonc
+```
 
 ## Set Up Visual Studio Code and Start Debugging
 
@@ -79,7 +89,7 @@ The main process can be debugged with the node debugger that ships with Visual S
   ],
   "preLaunchTask": "npm: compile"
 }
-```jsonc
+```
 
 ### Renderer Process
 
@@ -139,7 +149,7 @@ project-root/
 ├── package.json
 ├── tsconfig.json
 └── webpack.config.js
-```plaintext
+```
 
 ## Using Cursor AI
 
