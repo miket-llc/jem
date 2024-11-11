@@ -35,7 +35,7 @@ npm install
 
 # Optional: test if the application is running
 npm start
-```
+```jsonc
 
 ## Set Up Visual Studio Code and Start Debugging
 
@@ -47,9 +47,9 @@ npm start
 
     ![Select configuration](./docs/media/select_configuration.png)
 
-4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (<kbd>F5</kbd>).
+4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (`F5`).
     - The breakpoint in `main.ts` will be hit.
-    - Click Continue (<kbd>F5</kbd>).
+    - Click Continue (`F5`).
     - In the Electron example app, interact with the joystick or controller to trigger the breakpoints in `index.tsx`.
 
 ## How Does It Work?
@@ -79,7 +79,7 @@ The main process can be debugged with the node debugger that ships with Visual S
   ],
   "preLaunchTask": "npm: compile"
 }
-```
+```jsonc
 
 ### Renderer Process
 
@@ -118,9 +118,8 @@ In the `sourceMaps` and `resolveSourceMapLocations` sections, we enable the crea
 
 ## Project Structure
 
-```
+```plaintext
 project-root/
-│
 ├── src/
 │   ├── common/
 │   │   └── logLevels.ts
@@ -134,14 +133,13 @@ project-root/
 │   │   │   └── ipcService.ts
 │   │   ├── index.tsx
 │   │   └── renderer.html
-│
 ├── build/
 ├── .vscode/
 │   └── launch.json
 ├── package.json
 ├── tsconfig.json
 └── webpack.config.js
-```
+```plaintext
 
 ## Using Cursor AI
 
