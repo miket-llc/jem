@@ -2,7 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  mode: 'development',
+  entry: './src/renderer/index.tsx',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -21,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/renderer/.html',
     }),
   ],
   devServer: {
@@ -29,4 +31,4 @@ module.exports = {
     compress: true,
     port: 9000,
   },
-}; 
+};

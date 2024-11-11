@@ -1,9 +1,9 @@
 {
   "name": "jem",
   "version": "1.0.0",
-  "main": "build/main.js",
+  "main": "build/main/main.js",
   "scripts": {
-    "compile": "tsc && copyfiles -u 1 src/*.html build",
+    "compile": "tsc && copyfiles -u 1 src/renderer/*.html build",
     "build": "webpack",
     "start": "electron ."
   },
