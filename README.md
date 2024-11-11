@@ -23,25 +23,25 @@ Ensure you have the following installed on your development machine:
 
 ## Install Application
 
-# Clone repository
+## Clone repository
 
 ```sh
 git clone https://github.com/miket-llc/jem.git
 ```
 
-# Change into directory
+## Change into directory
 
 ```sh
 cd jem
 ```
 
-# Install dependencies
+## Install dependencies
 
 ```sh
 npm install
 ```
 
-# Optional: test if the application is running
+## Optional: test if the application is running
 
 ```sh
 npm start
