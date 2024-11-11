@@ -1,4 +1,4 @@
-# JEM: Joystick and Controller Enhanced Mapping
+# JEM: Joystick Enhanced Mapping
 
 JEM (Joystick and Controller Enhanced Mapping) is an advanced tool designed to provide comprehensive mapping and customization for virtual controllers. It aims to replace existing applications by offering a more robust and flexible solution for joystick and controller enthusiasts. JEM allows users to create complex mappings, macros, and profiles for their controllers, enhancing their gaming and simulation experiences.
 
