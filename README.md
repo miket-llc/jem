@@ -62,74 +62,11 @@ npm start
     - Click Continue (`F5`).
     - In the Electron example app, interact with the joystick or controller to trigger the breakpoints in `index.tsx`.
 
-## How Does It Work?
-
-Electron has two kinds of processes: a main process and renderer processes (one for each tab). They need different launch configurations, which are shown below. The code snippets are taken from the [launch configuration](.vscode/launch.json).
-
-### Main Process
-
-The main process can be debugged with the node debugger that ships with Visual Studio Code. The launch configuration looks like this:
-
-```jsonc
-{
-  "name": "Electron: Main",
-  "type": "node",
-  "request": "launch",
-  "cwd": "${workspaceFolder}",
-  "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-  "runtimeArgs": [
-    "--remote-debugging-port=9223"
-  ],
-  "args": ["."],
-  "outputCapture": "std",
-  "sourceMaps": true,
-  "resolveSourceMapLocations": [
-    "${workspaceFolder}/**",
-    "!**/node_modules/**"
-  ],
-  "preLaunchTask": "npm: compile"
-}
-```
-
-### Renderer Process
-
-A renderer process can be debugged with the Chrome debugger that ships with Visual Studio Code. The launch configuration looks like this:
-
-```jsonc
-{
-  "name": "Electron: Renderer",
-  "type": "chrome",
-  "request": "attach",
-  "port": 9223,
-  "webRoot": "${workspaceFolder}/src/renderer",
-  "timeout": 30000
-}
-```
-
-### Compound Configuration
-
-Visual Studio Code can only run a single configuration at a time, but we need to run the Main and the Renderer configurations at the same time. The solution is compound configurations (found in [vscode-recipes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)):
-
-```jsonc
-"compounds": [
-  {
-    "name": "Electron: All",
-    "configurations": [
-      "Electron: Main",
-      "Electron: Renderer"
-    ]
-  }
-]
-```
-
-### Source Maps
-
-In the `sourceMaps` and `resolveSourceMapLocations` sections, we enable the creation of source maps for our code. Source maps must be generated to enable the debugger to map locations inside the JavaScript code back to TypeScript.
-
 ## Project Structure
 
 ```plaintext
 project-root/
+│
 ├── src/
 │   ├── common/
 │   │   └── logLevels.ts
@@ -143,6 +80,7 @@ project-root/
 │   │   │   └── ipcService.ts
 │   │   ├── index.tsx
 │   │   └── renderer.html
+│
 ├── build/
 ├── .vscode/
 │   └── launch.json
@@ -157,7 +95,7 @@ Cursor AI can be used to enhance your development experience by providing intell
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request with your changes.
+Contributions are welcome! Please open an issue or submit a pull request with your changes. For detailed setup and development tips, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
