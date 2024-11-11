@@ -1,5 +1,5 @@
 {
-  "name": "electron_typescript_vscode",
+  "name": "jem",
   "version": "1.0.0",
   "main": "build/main.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "webpack",
     "start": "electron ."
   },
-  "author": "Andreas Bartho",
+  "author": "Mike Thompson",
   "license": "MIT",
   "description": "",
   "devDependencies": {

@@ -5,8 +5,8 @@ app.once('ready', () => {
     console.log('App is ready');
 
     const win = new BrowserWindow({
-        width: 600,
-        height: 400
+        width: 1200,
+        height: 900
     });
 
     const rendererHtmlPath = path.join(`${__dirname}/renderer.html`);
