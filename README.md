@@ -57,9 +57,9 @@ npm start
 
     ![Select configuration](./docs/media/select_configuration.png)
 
-4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (<kbd>F5</kbd>).
+4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (`F5`).
     - The breakpoint in `main.ts` will be hit.
-    - Click Continue (<kbd>F5</kbd>).
+    - Click Continue (`F5`).
     - In the Electron example app, interact with the joystick or controller to trigger the breakpoints in `index.tsx`.
 
 ## Project Structure
