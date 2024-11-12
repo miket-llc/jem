@@ -2,14 +2,7 @@
 import { LogLevel } from '../../common/logLevels';
 import { ILogService } from '../../common/ILogService';
 import { JemError } from '../../common/JemError';
-
-declare global {
-  interface Window {
-    electron: {
-      log: (level: LogLevel, message: string) => void;
-    };
-  }
-}
+import '../electron'; // Import the electron declaration
 
 const logService: ILogService = {
   log: (level: LogLevel, message: string) => {
