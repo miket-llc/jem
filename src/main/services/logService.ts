@@ -1,5 +1,7 @@
 import { createLogger, format, transports } from 'winston';
 import * as path from 'path';
+import { ILogService } from '../../common/ILogService';
+import { LogLevel } from '../../common/logLevels';
 
 const logger = createLogger({
   level: 'info',
@@ -14,4 +16,19 @@ const logger = createLogger({
   ]
 });
 
-export default logger;
+const logService: ILogService = {
+  log: (level: LogLevel, message: string) => {
+    logger.log({ level, message });
+  },
+  info: (message: string) => {
+    logger.info(message);
+  },
+  warn: (message: string) => {
+    logger.warn(message);
+  },
+  error: (message: string) => {
+    logger.error(message);
+  }
+};
+
+export default logService;

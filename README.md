@@ -1,4 +1,4 @@
-# JEM: Joystick Enhanced Mapping
+# JEM: Joystick and Controller Enhanced Mapping
 
 JEM (Joystick and Controller Enhanced Mapping) is an advanced tool designed to provide comprehensive mapping and customization for virtual controllers. It aims to replace existing applications by offering a more robust and flexible solution for joystick and controller enthusiasts. JEM allows users to create complex mappings, macros, and profiles for their controllers, enhancing their gaming and simulation experiences.
 
@@ -23,25 +23,25 @@ Ensure you have the following installed on your development machine:
 
 ## Install Application
 
-## Clone repository
+### Clone repository
 
 ```sh
 git clone https://github.com/miket-llc/jem.git
 ```
 
-## Change into directory
+### Change into directory
 
 ```sh
 cd jem
 ```
 
-## Install dependencies
+### Install dependencies
 
 ```sh
 npm install
 ```
 
-## Optional: test if the application is running
+### Optional: test if the application is running
 
 ```sh
 npm start
@@ -57,9 +57,9 @@ npm start
 
     ![Select configuration](./docs/media/select_configuration.png)
 
-4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (`F5`).
+4. Click the green arrow next to the "Electron: All" configuration, or run the "Run" -> "Start Debugging" command (<kbd>F5</kbd>).
     - The breakpoint in `main.ts` will be hit.
-    - Click Continue (`F5`).
+    - Click Continue (<kbd>F5</kbd>).
     - In the Electron example app, interact with the joystick or controller to trigger the breakpoints in `index.tsx`.
 
 ## Project Structure
@@ -92,6 +92,10 @@ project-root/
 ## Using Cursor AI
 
 Cursor AI can be used to enhance your development experience by providing intelligent code suggestions and assistance. Ensure you have Cursor AI installed and configured in your Visual Studio Code environment.
+
+## Error Handling and Logging
+
+JEM uses a centralized logging service managed by the main process. The renderer process sends log messages to the main process via IPC. If the IPC call fails, the renderer process logs messages to the console. This ensures that log messages are captured consistently and provides immediate feedback during development.
 
 ## Contributing
 
