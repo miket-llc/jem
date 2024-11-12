@@ -4,8 +4,9 @@
   "main": "build/main/main.js",
   "scripts": {
     "compile": "tsc && copyfiles -u 1 src/renderer/*.html build",
-    "build": "webpack",
-    "start": "electron ."
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "cross-env NODE_ENV=development webpack --mode development && electron .",
+    "start:prod": "cross-env NODE_ENV=production electron ."
   },
   "author": "Mike Thompson",
   "license": "MIT",
@@ -14,6 +15,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
     "electron": "^33.2.0",
     "html-webpack-plugin": "^5.6.3",
     "ts-loader": "^9.5.1",

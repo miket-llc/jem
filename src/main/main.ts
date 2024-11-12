@@ -4,6 +4,8 @@ import * as path from 'path';
 import logService from './services/logService';
 import { logLevels, LogLevel } from '../common/logLevels';
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 app.once('ready', () => {
     logService.info('App is ready');
 
