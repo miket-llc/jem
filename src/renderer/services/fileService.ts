@@ -1,6 +1,5 @@
 // src/renderer/services/fileService.ts
 import { IFileService } from '../../common/IFileService';
-import '../electron'; // Import the electron declaration
 
 const fileService: IFileService = {
   readFile: async (filePath: string) => {

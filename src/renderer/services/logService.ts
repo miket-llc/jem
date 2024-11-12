@@ -2,7 +2,6 @@
 import { LogLevel } from '../../common/logLevels';
 import { ILogService } from '../../common/ILogService';
 import { JemError } from '../../common/JemError';
-import '../electron'; // Import the electron declaration
 
 const logService: ILogService = {
   log: (level: LogLevel, message: string) => {

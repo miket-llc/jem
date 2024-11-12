@@ -16,7 +16,7 @@ app.once('ready', () => {
         }
     });
 
-    const rendererHtmlPath = path.join(`${__dirname}/../renderer/renderer.html`);
+    const rendererHtmlPath = path.join(__dirname, '../renderer/index.html');
     win.loadFile(rendererHtmlPath).then(() => {
         logService.info('Renderer loaded successfully');
     }).catch(e => {
