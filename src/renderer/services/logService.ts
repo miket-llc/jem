@@ -1,5 +1,7 @@
+// src/renderer/services/logService.ts
 import { LogLevel } from '../../common/logLevels';
 import { ILogService } from '../../common/ILogService';
+import { JemError } from '../../common/JemError';
 
 declare global {
   interface Window {
@@ -22,7 +24,8 @@ const logService: ILogService = {
     try {
       window.electron.log(level, message);
     } catch (error) {
-      console.error(`Failed to send log message via IPC: ${(error as Error).message}`);
+      const jemError = new JemError(`Failed to send log message via IPC: ${(error as Error).message}`, 'IPC_LOG_ERROR');
+      console.error(jemError.message);
     }
   },
   info: (message: string) => {

@@ -2,6 +2,7 @@ import { createLogger, format, transports } from 'winston';
 import * as path from 'path';
 import { ILogService } from '../../common/ILogService';
 import { LogLevel } from '../../common/logLevels';
+import { JemError } from '../../common/JemError';
 
 const logger = createLogger({
   level: 'info',
