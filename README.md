@@ -1,19 +1,15 @@
-<h1 align="center">electron-app</h1>
+# electron-app
 
-<p align="center">An Electron application with Vue3 and TypeScript</p>
+An Electron application with Vue3 and TypeScript
 
-<p align="center">
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron" alt="electron-version">
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron-vite" alt="electron-vite-version" />
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron-builder" alt="electron-builder-version" />
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/vite" alt="vite-version" />
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/vue" alt="vue-version" />
-<img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/typescript" alt="typescript-version" />
-</p>
+![electron-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron)
+![electron-vite-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron-vite)
+![electron-builder-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron-builder)
+![vite-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/vite)
+![vue-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/vue)
+![typescript-version](https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/typescript)
 
-<p align='center'>
-<img src='./build/electron-vite-vue-ts.png'/>
-</p>
+![electron-vite-vue-ts](./build/electron-vite-vue-ts.png)
 
 ## Features
 
@@ -33,14 +29,6 @@ Read [documentation](https://electron-vite.org/) for more details.
 - [HMR](https://electron-vite.org/guide/hmr.html) & [Hot Reloading](https://electron-vite.org/guide/hot-reloading.html)
 - [Debugging](https://electron-vite.org/guide/debugging.html)
 - [Source code protection](https://electron-vite.org/guide/source-code-protection.html)
-- [Distribution](https://electron-vite.org/guide/distribution.html)
-- [Troubleshooting](https://electron-vite.org/guide/troubleshooting.html)
-
-You can also use the [create-electron](https://github.com/alex8088/quick-start/tree/master/packages/create-electron) tool to scaffold your project for other frameworks (e.g. `React`, `Svelte` or `Solid`).
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
 
 ## Project Setup
 
@@ -48,29 +36,3 @@ You can also use the [create-electron](https://github.com/alex8088/quick-start/t
 
 ```bash
 $ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
-
-## Examples
-
-- [electron-vite-bytecode-example](https://github.com/alex8088/electron-vite-bytecode-example), source code protection
-- [electron-vite-decorator-example](https://github.com/alex8088/electron-vite-decorator-example), typescipt decorator
-- [electron-vite-worker-example](https://github.com/alex8088/electron-vite-worker-example), worker and fork
