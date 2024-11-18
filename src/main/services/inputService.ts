@@ -29,7 +29,7 @@ export class InputService {
     return this.platformService.findDevices()
   }
 
-  receiveInput(deviceId: string, callback: (input: any) => void) {
+  receiveInput(deviceId: string, callback: (input: unknown) => void) {
     this.platformService.receiveInput(deviceId, callback)
   }
 
@@ -37,7 +37,7 @@ export class InputService {
     return this.platformService.connectToVirtualDevice(deviceId)
   }
 
-  writeOutput(deviceId: string, output: any) {
+  writeOutput(deviceId: string, output: string) {
     this.platformService.writeOutput(deviceId, output)
   }
 }

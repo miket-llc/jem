@@ -12,6 +12,14 @@ declare module '*.vue' {
 declare global {
   interface Window {
     electron: ElectronAPI
+    joystick: {
+      setAxis: (axis: 'x' | 'y' | 'z', value: number) => void
+      pressButton: (buttonId: number) => void
+      releaseButton: (buttonId: number) => void
+      setDPad: (direction: number) => void
+      startEmitting: () => void
+      stopEmitting: () => void
+    }
   }
 
   interface Device {

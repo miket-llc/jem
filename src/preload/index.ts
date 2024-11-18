@@ -12,3 +12,13 @@ const electronAPI: ElectronAPI = {
 }
 
 contextBridge.exposeInMainWorld('electron', electronAPI)
+
+contextBridge.exposeInMainWorld('joystick', {
+  setAxis: (axis: 'x' | 'y' | 'z', value: number) =>
+    ipcRenderer.invoke('joystick:setAxis', axis, value),
+  pressButton: (buttonId: number) => ipcRenderer.invoke('joystick:pressButton', buttonId),
+  releaseButton: (buttonId: number) => ipcRenderer.invoke('joystick:releaseButton', buttonId),
+  setDPad: (direction: number) => ipcRenderer.invoke('joystick:setDPad', direction),
+  startEmitting: () => ipcRenderer.invoke('joystick:startEmitting'),
+  stopEmitting: () => ipcRenderer.invoke('joystick:stopEmitting')
+})

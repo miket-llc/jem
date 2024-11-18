@@ -10,16 +10,23 @@
         <li v-for="device in devices" :key="device.id">{{ device.name }}</li>
       </ul>
     </div>
+    <JoystickEmulator />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import JoystickEmulator from './components/JoystickEmulator.vue'
 
 const devices = ref<Device[]>([])
 
 const findDevices = async () => {
-  devices.value = await window.electron.findDevices()
+  try {
+    const foundDevices = await window.electron.findDevices()
+    devices.value = foundDevices
+  } catch (error) {
+    console.error('Error finding devices:', error)
+  }
 }
 
 const connectToVirtualDevice = async () => {
