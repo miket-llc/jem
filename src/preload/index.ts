@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import { ElectronAPI, JoystickAPI } from '../preload/types'
+import { ElectronAPI, JoystickAPI } from '../common/types/types'
 
 // Expose the methods to the renderer process
 const electronAPI: ElectronAPI = {

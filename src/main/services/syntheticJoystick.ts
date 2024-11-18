@@ -1,4 +1,4 @@
-import { JoystickState } from '../../preload/types'
+import { JoystickState } from '../../common/types/types'
 
 export class SyntheticJoystick {
   private state: JoystickState

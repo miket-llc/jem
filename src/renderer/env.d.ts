@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import { ElectronAPI, JoystickAPI } from '../types/types'
+import { ElectronAPI, JoystickAPI } from '..common/types/types'
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'

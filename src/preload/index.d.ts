@@ -1,5 +1,5 @@
 // src/preload/index.d.ts
-import { ElectronAPI } from './types'
+import { ElectronAPI } from '../common/types/types'
 
 declare global {
   interface Window {
