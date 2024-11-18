@@ -1,9 +1,17 @@
-// src/preload/types.ts
 export interface ElectronAPI {
   findDevices: () => Promise<Device[]>
   receiveInput: (deviceId: string) => Promise<string>
   connectToVirtualDevice: (deviceId: string) => Promise<void>
   writeOutput: (deviceId: string, output: string | Buffer) => Promise<void>
+}
+
+export interface JoystickAPI {
+  setAxis: (axis: 'x' | 'y' | 'z', value: number) => void
+  pressButton: (buttonId: number) => void
+  releaseButton: (buttonId: number) => void
+  setDPad: (direction: number) => void
+  startEmitting: () => void
+  stopEmitting: () => void
 }
 
 export interface Device {

@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
-import { ElectronAPI } from './types'
+import { ElectronAPI, JoystickAPI } from '../preload/types'
 
 // Expose the methods to the renderer process
 const electronAPI: ElectronAPI = {
@@ -11,9 +11,7 @@ const electronAPI: ElectronAPI = {
     ipcRenderer.invoke('write-output', deviceId, output)
 }
 
-contextBridge.exposeInMainWorld('electron', electronAPI)
-
-contextBridge.exposeInMainWorld('joystick', {
+const joystickAPI: JoystickAPI = {
   setAxis: (axis: 'x' | 'y' | 'z', value: number) =>
     ipcRenderer.invoke('joystick:setAxis', axis, value),
   pressButton: (buttonId: number) => ipcRenderer.invoke('joystick:pressButton', buttonId),
@@ -21,4 +19,13 @@ contextBridge.exposeInMainWorld('joystick', {
   setDPad: (direction: number) => ipcRenderer.invoke('joystick:setDPad', direction),
   startEmitting: () => ipcRenderer.invoke('joystick:startEmitting'),
   stopEmitting: () => ipcRenderer.invoke('joystick:stopEmitting')
+}
+
+contextBridge.exposeInMainWorld('electron', {
+  ...electronAPI,
+  process: {
+    versions: process.versions
+  }
 })
+
+contextBridge.exposeInMainWorld('joystick', joystickAPI)
