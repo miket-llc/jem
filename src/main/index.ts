@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import is from 'electron-is'
 import { join } from 'path'
 import { InputService } from './services/inputService'
@@ -6,6 +6,7 @@ import { SyntheticJoystick } from './services/syntheticJoystick'
 
 let mainWindow: BrowserWindow | null
 const inputService = new InputService()
+const joystick = new SyntheticJoystick()
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
@@ -43,6 +44,8 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', () => {
+  joystick.stopEmitting() // Stop joystick simulation
+  ipcMain.removeAllListeners() // Remove all IPC handlers
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -55,7 +58,9 @@ ipcMain.handle('find-devices', () => {
 
 ipcMain.handle('receive-input', (event, deviceId: string) => {
   inputService.receiveInput(deviceId, (input) => {
-    event.sender.send('input-received', input)
+    if (mainWindow) {
+      event.sender.send('input-received', input)
+    }
   })
 })
 
@@ -68,16 +73,11 @@ ipcMain.handle('write-output', (_, deviceId: string, output: unknown) => {
 })
 
 // Synthetic joystick and IPC handlers
-// Create a singleton instance of SyntheticJoystick
-const joystick = new SyntheticJoystick()
-
-// Example: Start emitting synthetic inputs at 60Hz for logging or debugging
 joystick.startEmitting((state) => {
-  console.log('Synthetic joystick state:', state)
+  if (mainWindow) {
+    console.log('Synthetic joystick state:', state)
+  }
 }, 16)
-
-// Expose the joystick instance to the preload script through IPC handlers
-import { ipcMain } from 'electron'
 
 ipcMain.handle('joystick:setAxis', (_event, axis: 'x' | 'y' | 'z', value: number) => {
   joystick.setAxis(axis, value)
@@ -97,7 +97,9 @@ ipcMain.handle('joystick:setDPad', (_event, direction: number) => {
 
 ipcMain.handle('joystick:startEmitting', () => {
   joystick.startEmitting((state) => {
-    console.log('Emulating joystick state:', state)
+    if (mainWindow) {
+      console.log('Emulating joystick state:', state)
+    }
   })
 })
 
