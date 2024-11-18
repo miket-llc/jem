@@ -36,3 +36,4 @@ Read [documentation](https://electron-vite.org/) for more details.
 
 ```bash
 $ npm install
+```

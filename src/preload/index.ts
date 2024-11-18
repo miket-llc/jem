@@ -1,22 +1,14 @@
-import { contextBridge } from 'electron'
-import { electronAPI } from '@electron-toolkit/preload'
+import { contextBridge, ipcRenderer } from 'electron'
+import { ElectronAPI } from './types'
 
-// Custom APIs for renderer
-const api = {}
-
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
-if (process.contextIsolated) {
-  try {
-    contextBridge.exposeInMainWorld('electron', electronAPI)
-    contextBridge.exposeInMainWorld('api', api)
-  } catch (error) {
-    console.error(error)
-  }
-} else {
-  // @ts-ignore (define in dts)
-  window.electron = electronAPI
-  // @ts-ignore (define in dts)
-  window.api = api
+// Expose the methods to the renderer process
+const electronAPI: ElectronAPI = {
+  findDevices: () => ipcRenderer.invoke('find-devices'),
+  receiveInput: (deviceId: string) => ipcRenderer.invoke('receive-input', deviceId),
+  connectToVirtualDevice: (deviceId: string) =>
+    ipcRenderer.invoke('connect-to-virtual-device', deviceId),
+  writeOutput: (deviceId: string, output: string | Buffer) =>
+    ipcRenderer.invoke('write-output', deviceId, output)
 }
+
+contextBridge.exposeInMainWorld('electron', electronAPI)
