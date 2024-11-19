@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import { ElectronAPI, JoystickAPI } from '..common/types/types'
+import { ElectronAPI } from '..common/types/types'
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -17,7 +17,6 @@ declare global {
         versions: NodeJS.ProcessVersions
       }
     }
-    joystick: JoystickAPI
   }
 
   interface Device {

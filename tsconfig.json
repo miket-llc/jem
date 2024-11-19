@@ -4,5 +4,11 @@
     "strict": true
   },
   "files": [],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.web.json" }
+  ],
+  "include": [
+    "common/**/*"
+  ]
 }

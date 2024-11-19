@@ -16,7 +16,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import JoystickEmulator from './components/JoystickEmulator.vue'
 
 const devices = ref<Device[]>([])
 
