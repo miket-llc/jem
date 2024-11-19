@@ -30,7 +30,6 @@ export class SyntheticDeviceService extends EventEmitter {
   }
 }
 
-
 export class DeviceInputService implements IDeviceInputService {
   private platformDeviceService: PlatformDeviceService
   private syntheticDeviceService: SyntheticDeviceService
