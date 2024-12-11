@@ -5,3 +5,4 @@ export interface IDeviceInputService {
   addSimulatedDevice(deviceId: string): void
   removeSimulatedDevice(deviceId: string): void
 }
+
